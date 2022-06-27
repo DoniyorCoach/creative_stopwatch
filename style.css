@@ -21,6 +21,7 @@
     color: gray;
     font-size: 60px;
 }
+
 .millisecond {
     font-size: 25px;
 }
@@ -68,4 +69,114 @@
     border: 2px solid white;
     background-color: white;
     border-radius: 5px;
+}
+
+@media screen and (min-width: 1700px) {
+    .container {
+        width: 650px;
+    }
+
+    .btn {
+        width: 160px;
+        height: 50px;
+        font-size: 38px;
+    }
+
+    .kvadratik {
+        width: 25px;
+        height: 25px;
+        border-radius: 6px;
+    }
+
+    .timeItem {
+        font-size: 68px;
+    }
+
+    .millisecond {
+        font-size: 30px;
+    } 
+}
+
+@media screen and (max-width: 1000px) {
+    .container {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .container {
+        width: 400px;
+    }
+
+    .btn {
+        width: 100px;
+        height: 33px;
+        font-size: 25px;
+    }
+
+    .kvadratik {
+        width: 16px;
+        height: 16px;
+        border-radius: 4px;
+    }
+
+    .timeItem {
+        font-size: 55px;
+    }
+
+    .millisecond {
+        font-size: 22px;
+    } 
+}
+
+@media screen and (max-width: 500px) {
+    .container {
+        width: 300px;
+    }
+
+    .btn {
+        width: 70px;
+        height: 28px;
+        font-size: 19px;
+    }
+
+    .kvadratik {
+        width: 13px;
+        height: 13px;
+        border-radius: 3px;
+    }
+
+    .timeItem {
+        font-size: 45px;
+    }
+
+    .millisecond {
+        font-size: 20px;
+    } 
+}
+
+@media screen and (max-width: 380px) {
+    .container {
+        width: 270px;
+    }
+
+    .btn {
+        width: 55px;
+        height: 23px;
+        font-size: 16px;
+    }
+
+    .kvadratik {
+        width: 11px;
+        height: 11px;
+        border-radius: 2px;
+    }
+
+    .timeItem {
+        font-size: 38px;
+    }
+
+    .millisecond {
+        font-size: 18px;
+    } 
 }
