@@ -34,154 +34,42 @@ function startSekundomer() {
 
         // millisecond and second interval
         intervalMillisecond = setInterval(function () {
-            millisecond.textContent = Number(millisecond.textContent) + 1;
+            millisecond.textContent = addZero(Number(millisecond.textContent) + 1);
 
-                if (this.outerWidth > 1700 && this.outerWidth < 2500) startBtn.style.fontSize = "26px";
-                else if (this.outerWidth > 1200 && this.outerWidth <= 1700) startBtn.style.fontSize = "22px";
-                else if (this.outerWidth > 1000 && this.outerWidth <= 1200) startBtn.style.fontSize = "19px";
-                else if (this.outerWidth > 700 && this.outerWidth <= 1000) startBtn.style.fontSize = "17px";
-                else if (this.outerWidth > 400 && this.outerWidth <= 700) startBtn.style.fontSize = "15px";
-                else if (this.outerWidth > 200 && this.outerWidth <= 400) startBtn.style.fontSize = "14px";
+            if (this.outerWidth > 1700 && this.outerWidth < 2500) startBtn.style.fontSize = "26px";
+            else if (this.outerWidth > 1200 && this.outerWidth <= 1700) startBtn.style.fontSize = "22px";
+            else if (this.outerWidth > 1000 && this.outerWidth <= 1200) startBtn.style.fontSize = "19px";
+            else if (this.outerWidth > 700 && this.outerWidth <= 1000) startBtn.style.fontSize = "17px";
+            else if (this.outerWidth > 400 && this.outerWidth <= 700) startBtn.style.fontSize = "15px";
+            else if (this.outerWidth > 200 && this.outerWidth <= 400) startBtn.style.fontSize = "14px";
 
+            //head tag "title" description
             document.querySelector('title').textContent = `${hour.textContent}:${minute.textContent}:${second.textContent}`;
 
-            switch (millisecond.textContent) {
-                case "1":
-                    millisecond.textContent = "01";
-                    break;
-                case "2":
-                    millisecond.textContent = "02";
-                    break;
-                case "3":
-                    millisecond.textContent = "03";
-                    break;
-                case "4":
-                    millisecond.textContent = "04";
-                    break;
-                case "5":
-                    millisecond.textContent = "05";
-                    break;
-                case "6":
-                    millisecond.textContent = "06";
-                    break;
-                case "7":
-                    millisecond.textContent = "07";
-                    break;
-                case "8":
-                    millisecond.textContent = "08";
-                    break;
-                case "9":
-                    millisecond.textContent = "09";
-                    break;
-                case "100":
-                    second.textContent = Number(second.textContent) + 1;
-                    millisecond.textContent = "00";
-                    switch (second.textContent) {
-                        case "1":
-                            second.textContent = "01";
-                            break;
-                        case "2":
-                            second.textContent = "02";
-                            break;
-                        case "3":
-                            second.textContent = "03";
-                            break;
-                        case "4":
-                            second.textContent = "04";
-                            break;
-                        case "5":
-                            second.textContent = "05";
-                            break;
-                        case "6":
-                            second.textContent = "06";
-                            break;
-                        case "7":
-                            second.textContent = "07";
-                            break;
-                        case "8":
-                            second.textContent = "08";
-                            break;
-                        case "9":
-                            second.textContent = "09";
-                            break;
-                        case "60":
-                            second.textContent = "00";
-                            break;
-                    }
-                    break;
+            if (millisecond.textContent == "100") {
+                second.textContent = addZero(Number(second.textContent) + 1);
+                millisecond.textContent = "00";
+            }
+            if (second.textContent == 60) {
+                second.textContent = "00";
             }
         }, 10);
 
         // minute interval
         intervalminute = setInterval(function () {
-            minute.textContent = Number(minute.textContent) + 1;
-            switch (minute.textContent) {
-                case "1":
-                    minute.textContent = "01";
-                    break;
-                case "2":
-                    minute.textContent = "02";
-                    break;
-                case "3":
-                    minute.textContent = "03";
-                    break;
-                case "4":
-                    minute.textContent = "04";
-                    break;
-                case "5":
-                    minute.textContent = "05";
-                    break;
-                case "6":
-                    minute.textContent = "06";
-                    break;
-                case "7":
-                    minute.textContent = "07";
-                    break;
-                case "8":
-                    minute.textContent = "08";
-                    break;
-                case "9":
-                    minute.textContent = "09";
-                    break;
-                case "60":
-                    minute.textContent = "00";
-                    break;
+            minute.textContent = addZero(Number(minute.textContent) + 1);
+            if (minute.textContent == "60") {
+                minute.textContent = "00";
             }
         }, 1000 * 60);
 
         // hour interval
         intervalhour = setInterval(function () {
-            hour.textContent = Number(hour.textContent) + 1;
-
-            switch (hour.textContent) {
-                case "1":
-                    hour.textContent = "01";
-                    break;
-                case "2":
-                    hour.textContent = "02";
-                    break;
-                case "3":
-                    hour.textContent = "03";
-                    break;
-                case "4":
-                    hour.textContent = "04";
-                    break;
-                case "5":
-                    hour.textContent = "05";
-                    break;
-                case "6":
-                    hour.textContent = "06";
-                    break;
-                case "7":
-                    hour.textContent = "07";
-                    break;
-                case "8":
-                    hour.textContent = "08";
-                    break;
-                case "9":
-                    hour.textContent = "09";
-                    break;
+            hour.textContent = addZero(Number(hour.textContent) + 1);
+            if (hour.textContent == "100") {
+                zeroing();
             }
+            
         }, 1000 * 60 * 60);
 
         clickCounter += 1;
@@ -222,4 +110,10 @@ function zeroing() {
     second.textContent = "00";
     minute.textContent = "00";
     hour.textContent = "00";
+}
+
+function addZero(num) {
+    if (num >= 0 && num < 10) {
+        return `0${num}`
+    } else return num;
 }
